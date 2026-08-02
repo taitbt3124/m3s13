@@ -1,20 +1,22 @@
 package com.example.hrm.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Positive;
+import jakarta.persistence.*;
+import lombok.*;
 
+@Entity
+@Table(name = "employees")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Employee {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Tên không được để trống")
     private String fullName;
-
-    @Positive(message = "Lương phải lớn hơn 0")
-    private Double salary;
+    private String email;
+    private String department;
+    private String avatarUrl;
 }

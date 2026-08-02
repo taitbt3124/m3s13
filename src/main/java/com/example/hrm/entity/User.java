@@ -2,6 +2,7 @@ package com.example.hrm.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
@@ -10,6 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,5 +24,8 @@ public class User {
 
     private String fullName;
     private String role;
-    private boolean enabled = true;
+    private boolean enabled = false;
+    private String otpCode;
+    private LocalDateTime otpExpiration;
+    private String email;
 }

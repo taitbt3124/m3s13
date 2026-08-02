@@ -15,4 +15,8 @@ public class RegisterRequest {
 
     @NotBlank(message = "Họ tên không được trống")
     private String fullName;
+
+    @NotBlank(message = "Email không được trống")
+    private String email;
+
 }
